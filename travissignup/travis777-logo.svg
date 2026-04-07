@@ -1,0 +1,28 @@
+<svg width="620" height="620" viewBox="0 0 620 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="620" height="620" rx="160" fill="url(#bg)"/>
+  <rect x="62" y="62" width="496" height="496" rx="122" fill="url(#inner)" stroke="#FFD3B7" stroke-width="8"/>
+
+  <path d="M220 180H400V236H336V426H284V236H220V180Z" fill="#FFF3E7"/>
+  <path d="M380 300H448L366 426H300L380 300Z" fill="#FF9A58"/>
+  <path d="M434 300H500L418 426H352L434 300Z" fill="#FFD7BD"/>
+
+  <circle cx="308" cy="120" r="17" fill="#FFB480"/>
+  <circle cx="358" cy="120" r="17" fill="#FFE4D1"/>
+  <circle cx="258" cy="120" r="17" fill="#FF8E4B"/>
+
+  <text x="310" y="520" text-anchor="middle" fill="#FFF7F1"
+    font-family="Verdana, Geneva, sans-serif" font-size="62" font-weight="700" letter-spacing="3">
+    TRAVIS777
+  </text>
+
+  <defs>
+    <linearGradient id="bg" x1="44" y1="46" x2="586" y2="582" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101F3D"/>
+      <stop offset="1" stop-color="#223F6B"/>
+    </linearGradient>
+    <linearGradient id="inner" x1="94" y1="96" x2="526" y2="526" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#173567"/>
+      <stop offset="1" stop-color="#0F2A50"/>
+    </linearGradient>
+  </defs>
+</svg>

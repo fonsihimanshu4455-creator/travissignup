@@ -1,0 +1,59 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e1f47"/>
+      <stop offset="100%" stop-color="#1d4b91"/>
+    </linearGradient>
+    <linearGradient id="goldA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffd978"/>
+      <stop offset="100%" stop-color="#f9aa2e"/>
+    </linearGradient>
+    <linearGradient id="moneyA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6fe1a0"/>
+      <stop offset="100%" stop-color="#2aaf68"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" rx="34" fill="url(#bgA)"/>
+  <circle cx="190" cy="130" r="140" fill="#ffffff0f"/>
+  <circle cx="1070" cy="620" r="190" fill="#ffffff10"/>
+
+  <rect x="82" y="270" width="410" height="250" rx="26" fill="#0a1736" stroke="#274f8f" stroke-width="4"/>
+  <rect x="104" y="292" width="368" height="46" rx="10" fill="#18366d"/>
+  <text x="288" y="323" text-anchor="middle" font-size="26" font-family="Verdana, sans-serif" fill="#cfe4ff" font-weight="700">WINNING ACCOUNT</text>
+
+  <g transform="translate(120 360)">
+    <rect width="340" height="132" rx="14" fill="url(#moneyA)"/>
+    <rect x="14" y="14" width="312" height="104" rx="10" fill="#9af0bf"/>
+    <circle cx="170" cy="66" r="36" fill="#2f8f59"/>
+    <text x="170" y="76" text-anchor="middle" font-size="42" font-family="Verdana, sans-serif" fill="#e5ffef" font-weight="700">$</text>
+    <rect x="28" y="52" width="56" height="28" rx="7" fill="#66c88f"/>
+    <rect x="256" y="52" width="56" height="28" rx="7" fill="#66c88f"/>
+  </g>
+
+  <g transform="translate(560 160)">
+    <circle cx="0" cy="0" r="94" fill="url(#goldA)"/>
+    <circle cx="0" cy="0" r="72" fill="#ffefad"/>
+    <text x="0" y="16" text-anchor="middle" font-size="78" font-family="Verdana, sans-serif" fill="#d78712" font-weight="700">$</text>
+  </g>
+  <g transform="translate(720 220)">
+    <circle cx="0" cy="0" r="64" fill="url(#goldA)"/>
+    <circle cx="0" cy="0" r="48" fill="#ffefad"/>
+    <text x="0" y="11" text-anchor="middle" font-size="50" font-family="Verdana, sans-serif" fill="#d78712" font-weight="700">$</text>
+  </g>
+  <g transform="translate(640 340)">
+    <circle cx="0" cy="0" r="70" fill="url(#goldA)"/>
+    <circle cx="0" cy="0" r="53" fill="#ffefad"/>
+    <text x="0" y="12" text-anchor="middle" font-size="54" font-family="Verdana, sans-serif" fill="#d78712" font-weight="700">$</text>
+  </g>
+
+  <g transform="translate(860 220)">
+    <rect x="0" y="0" width="300" height="190" rx="22" fill="#14315e" stroke="#2c67ba" stroke-width="4"/>
+    <text x="150" y="48" text-anchor="middle" font-size="34" font-family="Verdana, sans-serif" fill="#ffffff" font-weight="700">BIG WIN</text>
+    <text x="150" y="112" text-anchor="middle" font-size="62" font-family="Verdana, sans-serif" fill="#ffd978" font-weight="800">$9,999</text>
+    <rect x="56" y="138" width="188" height="34" rx="10" fill="#2a5ba8"/>
+    <text x="150" y="162" text-anchor="middle" font-size="20" font-family="Verdana, sans-serif" fill="#deebff" font-weight="700">CASH CREDITED</text>
+  </g>
+
+  <text x="640" y="635" text-anchor="middle" font-size="72" font-family="Verdana, sans-serif" fill="#ffe6be" font-weight="800">CASH WINNING ENERGY</text>
+</svg>

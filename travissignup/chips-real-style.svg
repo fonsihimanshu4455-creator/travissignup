@@ -1,0 +1,76 @@
+<svg width="1180" height="760" viewBox="0 0 1180 760" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tableBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f3225"/>
+      <stop offset="100%" stop-color="#19563f"/>
+    </linearGradient>
+    <linearGradient id="felt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1f6b4a"/>
+      <stop offset="100%" stop-color="#2c8a61"/>
+    </linearGradient>
+    <radialGradient id="glowRed" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#ffb2bf"/>
+      <stop offset="100%" stop-color="#c71e41"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#d4e4ff"/>
+      <stop offset="100%" stop-color="#2f69c6"/>
+    </radialGradient>
+    <radialGradient id="glowBlack" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#c9d0dc"/>
+      <stop offset="100%" stop-color="#121824"/>
+    </radialGradient>
+    <filter id="shadowA" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#081228" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+
+  <rect width="1180" height="760" rx="36" fill="url(#tableBg)"/>
+  <ellipse cx="590" cy="400" rx="500" ry="250" fill="url(#felt)" stroke="#4bb685" stroke-width="6"/>
+  <ellipse cx="590" cy="400" rx="380" ry="182" fill="#1a5d41" stroke="#67cb98" stroke-width="4"/>
+
+  <g transform="translate(230 286) rotate(-9)" filter="url(#shadowA)">
+    <rect width="206" height="290" rx="16" fill="#fbfdff"/>
+    <rect x="7" y="7" width="192" height="276" rx="12" fill="#f3f8fe" stroke="#dbe7f6" stroke-width="2"/>
+    <text x="28" y="54" font-size="42" font-family="Verdana, sans-serif" font-weight="800" fill="#d92145">A</text>
+    <path d="M165 230c9-15 26-26 26-48 0-24-18-42-42-42s-42 18-42 42c0 22 17 33 26 48l16 27 16-27z" fill="#d92145"/>
+  </g>
+
+  <g transform="translate(390 250) rotate(7)" filter="url(#shadowA)">
+    <rect width="206" height="290" rx="16" fill="#fbfdff"/>
+    <rect x="7" y="7" width="192" height="276" rx="12" fill="#f3f8fe" stroke="#dbe7f6" stroke-width="2"/>
+    <text x="28" y="54" font-size="42" font-family="Verdana, sans-serif" font-weight="800" fill="#12151d">K</text>
+    <text x="86" y="182" font-size="116" font-family="Verdana, sans-serif" font-weight="800" fill="#12151d">S</text>
+  </g>
+
+  <g transform="translate(730 286)" filter="url(#shadowA)">
+    <circle cx="0" cy="0" r="98" fill="url(#glowRed)"/>
+    <circle cx="0" cy="0" r="76" fill="#ffd2da"/>
+    <circle cx="0" cy="0" r="52" fill="#cf2144"/>
+    <circle cx="0" cy="0" r="30" fill="#ffe3e8"/>
+    <text x="0" y="10" text-anchor="middle" font-size="34" font-family="Verdana, sans-serif" font-weight="800" fill="#be1638">500</text>
+  </g>
+
+  <g transform="translate(892 350)" filter="url(#shadowA)">
+    <circle cx="0" cy="0" r="82" fill="url(#glowBlue)"/>
+    <circle cx="0" cy="0" r="63" fill="#e3edff"/>
+    <circle cx="0" cy="0" r="42" fill="#2f69c6"/>
+    <circle cx="0" cy="0" r="22" fill="#eef4ff"/>
+    <text x="0" y="9" text-anchor="middle" font-size="28" font-family="Verdana, sans-serif" font-weight="800" fill="#244e95">250</text>
+  </g>
+
+  <g transform="translate(985 262)" filter="url(#shadowA)">
+    <circle cx="0" cy="0" r="64" fill="url(#glowBlack)"/>
+    <circle cx="0" cy="0" r="48" fill="#d1d7e0"/>
+    <circle cx="0" cy="0" r="28" fill="#1c2432"/>
+    <text x="0" y="7" text-anchor="middle" font-size="20" font-family="Verdana, sans-serif" font-weight="800" fill="#e7ecf2">100</text>
+  </g>
+
+  <g transform="translate(744 488)" filter="url(#shadowA)">
+    <rect width="300" height="170" rx="24" fill="#102848" stroke="#4e88e1" stroke-width="4"/>
+    <text x="150" y="62" text-anchor="middle" font-size="38" font-family="Verdana, sans-serif" font-weight="800" fill="#e6f0ff">LIVE BET</text>
+    <text x="150" y="126" text-anchor="middle" font-size="52" font-family="Verdana, sans-serif" font-weight="800" fill="#ffd978">$12,500</text>
+  </g>
+
+  <text x="590" y="708" text-anchor="middle" font-size="64" font-family="Verdana, sans-serif" font-weight="800" fill="#dbf5e8">REAL CASINO CHIPS STYLE</text>
+</svg>
