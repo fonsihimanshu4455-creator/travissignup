@@ -383,9 +383,10 @@
   </div>
 
   <script>
-    const DEFAULT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyLGECymHvBbbWumfwrcHJRmESrF-9PIJbJZf8DNO-cFoSlR3ku5ibTVSvLBQH6hy0fWw/exec";
+    const DEFAULT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby1991Bnzg1nLskOVXy6ZCjxs--WS9lmhgmkyGOj6hIbl67WEHRVsCpcLlsjImuFTH9/exec";
     const SCRIPT_URL_KEY = "signup_script_url_override";
     const LEGACY_SCRIPT_URLS = [
+      "https://script.google.com/macros/s/AKfycbyLGECymHvBbbWumfwrcHJRmESrF-9PIJbJZf8DNO-cFoSlR3ku5ibTVSvLBQH6hy0fWw/exec",
       "https://script.google.com/macros/s/AKfycbyLGECymHvBbbWumfwrcHJRmESrF-9PIJbJZf8DNO-cFoSIR3ku5ibTVSvLBQH6hy0fWw/exec",
       "https://script.google.com/macros/s/AKfycbzyTiA4bjlRbQItfkgt8C1F84bN37yFw6L7yAK9uJ_8wpVgOUVVEnAD19xwp2fLBjXtug/exec"
     ];
@@ -520,6 +521,8 @@
         successModal.classList.add("show");
         successModal.setAttribute("aria-hidden", "false");
         form.reset();
+        renderWebsites(DEFAULT_WEBSITES);
+        await loadPublicConfig();
       } catch (error) {
         errorText.textContent = "Signup save nahi hua. Dobara try karein.";
       } finally {
