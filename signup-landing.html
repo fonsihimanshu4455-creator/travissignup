@@ -386,10 +386,7 @@
           <label for="website">Select Website</label>
           <select id="website" name="website" required>
             <option value="">Choose a website</option>
-            <option value="99Exch">99Exch</option>
-            <option value="Lotus365">Lotus365</option>
-            <option value="SkyExchange">SkyExchange</option>
-            <option value="Diamond247">Diamond247</option>
+            <option value="bpexch">bpexch</option>
           </select>
         </div>
 
@@ -407,6 +404,7 @@
     target="_blank"
     rel="noopener noreferrer"
     aria-label="WhatsApp Support"
+    id="whatsappSupportBtn"
   >
     <svg viewBox="0 0 32 32" aria-hidden="true">
       <path d="M19.1 17.9c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1-.2.2-.3.2-.6.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.5-1.8-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .2.2 2 3.1 4.8 4.3.7.3 1.2.5 1.6.7.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.1-1.4-.1-.1-.3-.2-.6-.4z"/>
@@ -424,7 +422,27 @@
   </div>
 
   <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8QOWBP8xj-5G91rqdVRvu-E4xmZZbpVFQ0r5ZQiE1naLSvjHEj84IIIJighcxstnbOA/exec";
+    const DEFAULT_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby1991Bnzg1nLskOVXy6ZCjxs--WS9lmhgmkyGOj6hIbl67WEHRVsCpcLlsjImuFTH9/exec";
+    const SCRIPT_URL_KEY = "signup_script_url_override";
+    const LEGACY_SCRIPT_URLS = [
+      "https://script.google.com/macros/s/AKfycbyLGECymHvBbbWumfwrcHJRmESrF-9PIJbJZf8DNO-cFoSlR3ku5ibTVSvLBQH6hy0fWw/exec",
+      "https://script.google.com/macros/s/AKfycbyLGECymHvBbbWumfwrcHJRmESrF-9PIJbJZf8DNO-cFoSIR3ku5ibTVSvLBQH6hy0fWw/exec",
+      "https://script.google.com/macros/s/AKfycbzyTiA4bjlRbQItfkgt8C1F84bN37yFw6L7yAK9uJ_8wpVgOUVVEnAD19xwp2fLBjXtug/exec"
+    ];
+    const storedScriptUrl = localStorage.getItem(SCRIPT_URL_KEY) || "";
+    const scriptUrlParam = new URLSearchParams(window.location.search).get("script_url");
+    if (scriptUrlParam) {
+      localStorage.setItem(SCRIPT_URL_KEY, scriptUrlParam);
+    } else if (LEGACY_SCRIPT_URLS.includes(storedScriptUrl)) {
+      localStorage.removeItem(SCRIPT_URL_KEY);
+    }
+    const GOOGLE_SCRIPT_URL =
+      scriptUrlParam ||
+      (LEGACY_SCRIPT_URLS.includes(storedScriptUrl) ? "" : storedScriptUrl) ||
+      DEFAULT_SCRIPT_URL;
+
+    const DEFAULT_WEBSITES = ["bpexch"];
+    const DEFAULT_HELPLINE = "919999999999";
 
     const form = document.getElementById("signupForm");
     const submitBtn = form.querySelector(".submit-btn");
@@ -436,6 +454,74 @@
     const errorText = document.getElementById("errorText");
     const successModal = document.getElementById("successModal");
     const closeModalBtn = document.getElementById("closeModalBtn");
+    const whatsappSupportBtn = document.getElementById("whatsappSupportBtn");
+
+    function buildWhatsAppLink(phoneNumber) {
+      return "https://api.whatsapp.com/send?phone=" + encodeURIComponent(phoneNumber) + "&text=Hi%20Support%2C%20mujhe%20help%20chahiye";
+    }
+
+    function sanitizeWebsiteList(list) {
+      if (!Array.isArray(list)) {
+        return [];
+      }
+
+      const seen = {};
+      const clean = [];
+      list.forEach((item) => {
+        const value = String(item || "").trim();
+        if (!value) {
+          return;
+        }
+        const key = value.toLowerCase();
+        if (seen[key]) {
+          return;
+        }
+        seen[key] = true;
+        clean.push(value);
+      });
+      return clean;
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function renderWebsites(websitesList) {
+      const options = sanitizeWebsiteList(websitesList);
+      const finalOptions = options.length ? options : DEFAULT_WEBSITES;
+
+      website.innerHTML = finalOptions.map((site) => {
+        return "<option value=\"" + escapeHtml(site) + "\">" + escapeHtml(site) + "</option>";
+      }).join("");
+    }
+
+    async function loadPublicConfig() {
+      renderWebsites(DEFAULT_WEBSITES);
+      whatsappSupportBtn.href = buildWhatsAppLink(DEFAULT_HELPLINE);
+
+      try {
+        const response = await fetch(GOOGLE_SCRIPT_URL + "?action=config&_t=" + Date.now(), { method: "GET" });
+        const data = await response.json();
+        if (!data || !data.ok) {
+          return;
+        }
+
+        renderWebsites(data.websites || DEFAULT_WEBSITES);
+        const helpline = String(data.whatsappHelpline || "").replace(/\D/g, "");
+        if (helpline) {
+          whatsappSupportBtn.href = buildWhatsAppLink(helpline);
+        }
+      } catch (error) {
+        // Defaults already set above.
+      }
+    }
+
+    loadPublicConfig();
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -475,6 +561,8 @@
         successModal.classList.add("show");
         successModal.setAttribute("aria-hidden", "false");
         form.reset();
+        renderWebsites(DEFAULT_WEBSITES);
+        await loadPublicConfig();
       } catch (error) {
         errorText.textContent = "Signup save nahi hua. Dobara try karein.";
       } finally {
